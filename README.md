@@ -282,7 +282,7 @@ The resulting supermatrix can be used for phylogenetic inference.
 iqtree2 \
   -s BUSCO_supermatrix.fasta \
   -m MFP \
-  -B 1000 \
+  --ufboot 1000 \
   --alrt 1000 \
   -T AUTO
 ```
@@ -294,7 +294,7 @@ iqtree2 \
   -s BUSCO_supermatrix.fasta \
   -st AA \
   -m MFP \
-  -B 1000 \
+  --ufboot 1000 \
   --alrt 1000 \
   -T AUTO
 ```
