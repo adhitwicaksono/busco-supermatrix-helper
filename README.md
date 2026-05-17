@@ -493,10 +493,10 @@ This makes the workflow useful for hybrid environments such as Galaxy + local co
 
 ## License
 
-MIT License is recommended for this repository.
+**MIT License** is recommended for this repository.
 
 ---
 
 ## Author
 
-Developed by Adhityo Wicaksono. Project led by Yekti Asih Purwestri (Universitas Gadjah Mada, Indonesia).
+Developed by **Adhityo Wicaksono**. Project led by **Yekti Asih Purwestri** (Universitas Gadjah Mada, Indonesia).
