@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/busco_supermatrix_helper_banner.png" alt="BUSCO Supermatrix Helper banner" width="100%">
+</p>
+
 # BUSCO Supermatrix Helper
 
 Lightweight Python helper scripts for preparing BUSCO-derived sequences for phylogenomic analysis.
