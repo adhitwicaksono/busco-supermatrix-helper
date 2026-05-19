@@ -521,15 +521,21 @@ This makes the workflow useful for hybrid environments such as Galaxy + local co
 
 ---
 
-## License
+## AI Usage Declaration
 
-**MIT License** is recommended for this repository.
+This project was developed with assistance from AI tools, especially **ChatGPT (OpenAI)**, during early ideation, documentation drafting, toy dataset design, test planning, and prototype code generation.
 
 ---
 
 ## Author
 
 Developed by **Adhityo Wicaksono**. Project led by **Prof. Yekti Asih Purwestri** (Universitas Gadjah Mada, Indonesia).
+
+---
+
+## License
+
+**MIT License** is recommended for this repository.
 
 ---
 
