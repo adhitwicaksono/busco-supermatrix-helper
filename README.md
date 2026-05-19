@@ -355,12 +355,12 @@ BUSCO_tree.nwk
 This is incorrect:
 
 ```text
-CI_BUSCO_complete_renamed.fasta → MAFFT
+<sample_name>_BUSCO_complete_renamed.fasta → MAFFT
 ```
 
 because the file contains many unrelated BUSCO genes from the same sample.
 
-Instead, BUSCOs must first be grouped by BUSCO ID across samples.
+Instead, BUSCOs must first be grouped by BUSCO ID across samples (done by the grouping tool provided here).
 
 Correct:
 
@@ -434,14 +434,14 @@ It was used to prepare shared BUSCO nucleotide and protein datasets for MAFFT al
 
 ## FAQ and troubleshooting
 
-### 1. Why does my tree show BUSCO IDs instead of sample names?
+### Why does my tree show BUSCO IDs instead of sample names?
 
 This usually means the alignment was constructed incorrectly.
 
 Wrong workflow:
 
 ```text
-CI_BUSCO_complete_renamed.fasta → MAFFT → tree
+<sample_name>_BUSCO_complete_renamed.fasta → MAFFT → tree
 ```
 
 ---
@@ -462,27 +462,27 @@ This repository is a lightweight helper workflow for reformatting BUSCO-derived 
 
 This tool set was designed following the output from BUSCO, MAFFT, and IQ-TREE. Please cite the references corresponding to the respective tools.
 
-BUSCO:
+**BUSCO**:
 
 - Waterhouse, R. M., Seppey, M., Simão, F. A., Manni, M., Ioannidis, P., Klioutchnikov, G., Kriventseva, E. V., & Zdobnov, E. M. (2018). BUSCO applications from quality assessments to gene prediction and phylogenomics. *Molecular Biology and Evolution*, 35(3), 543–548. https://doi.org/10.1093/molbev/msx319
 
-MAFFT:
+**MAFFT**:
 
 - Katoh, K., & Standley, D. M. (2013). MAFFT multiple sequence alignment software version 7: improvements in performance and usability. *Molecular Biology and Evolution*, 30(4), 772–780. https://doi.org/10.1093/molbev/mst010
 
-IQ-TREE:
+**IQ-TREE**:
 
 - Minh, B. Q., Schmidt, H. A., Chernomor, O., Schrempf, D., Woodhams, M. D., von Haeseler, A., & Lanfear, R. (2020). IQ-TREE 2: new models and efficient methods for phylogenetic inference in the genomic era. *Molecular Biology and Evolution*, 37(5), 1530–1534. https://doi.org/10.1093/molbev/msaa015
 
-ModelFinder through IQ-TREE, please cite:
+**ModelFinder** through IQ-TREE, please cite:
 
 - Kalyaanamoorthy, S., Minh, B. Q., Wong, T. K. F., von Haeseler, A., & Jermiin, L. S. (2017). ModelFinder: fast model selection for accurate phylogenetic estimates. *Nature Methods*, 14, 587–589. https://doi.org/10.1038/nmeth.4285
 
-The ultrafast bootstrap through IQ-TREE, please cite:
+**The ultrafast bootstrap** through IQ-TREE, please cite:
 
 - Hoang, D. T., Chernomor, O., von Haeseler, A., Minh, B. Q., & Vinh, L. S. (2018). UFBoot2: improving the ultrafast bootstrap approximation. *Molecular Biology and Evolution*, 35(2), 518–522. https://doi.org/10.1093/molbev/msx281
 
-Alternatively, if you use FastTree, please cite:
+Alternatively, if you use **FastTree**, please cite:
 
 - Price, M. N., Dehal, P. S., & Arkin, A. P. (2010). FastTree 2: approximately maximum-likelihood trees for large alignments. *PLoS ONE*, 5(3), e9490. https://doi.org/10.1371/journal.pone.0009490
 
@@ -492,12 +492,18 @@ This repository was developed independently as a small helper workflow, but it f
 
 Related tools include:
 
+**BuscoPhylo**:
+
 - Sahbou, A.-E., Iraqi, D., Mentag, R., & Khayi, S. (2022). BuscoPhylo: a webserver for Busco-based phylogenomic analysis for non-specialists. *Scientific Reports*, 12, 17352. https://doi.org/10.1038/s41598-022-22461-0
 
 - McGowan, J. BUSCO_Phylogenomics. GitHub repository: https://github.com/jamiemcg/BUSCO_phylogenomics  
   Also available through Bioconda as `busco_phylogenomics`.
 
+**OrthoFinder**
+
 - Emms, D. M., & Kelly, S. (2019). OrthoFinder: phylogenetic orthology inference for comparative genomics. *Genome Biology*, 20, 238. https://doi.org/10.1186/s13059-019-1832-y
+
+**Phylociraptor**
 
 - Phylociraptor documentation. Phylociraptor is a phylogenomics workflow that can identify single-copy orthologs, align genes, trim alignments, infer gene trees, and generate species trees using multiple methods. Documentation: https://phylociraptor.readthedocs.io/
 
@@ -505,11 +511,11 @@ Related tools include:
 
 `busco-supermatrix-helper` does not run BUSCO, MAFFT, or IQ-TREE internally. Instead, it helps users who already have BUSCO outputs and need to:
 
-1. recover BUSCO IDs from coordinate-style FASTA headers,
-2. rename BUSCO sequences as `sample|BUSCO_ID`,
-3. group shared BUSCOs across samples,
-4. prepare one FASTA per BUSCO ortholog,
-5. concatenate externally aligned BUSCO alignments into a supermatrix.
+1. Recover BUSCO IDs from coordinate-style FASTA headers,
+2. Rename BUSCO sequences as `sample|BUSCO_ID`,
+3. Group shared BUSCOs across samples,
+4. Prepare one FASTA per BUSCO ortholog,
+5. Concatenate externally aligned BUSCO alignments into a supermatrix.
 
 This makes the workflow useful for hybrid environments such as Galaxy + local command line workflows.
 
@@ -533,4 +539,4 @@ BUSCO Supermatrix Helper was built on a manuscript about local rice cultivars wh
 
 For now:
 
-Wicaksono, A., & Purwestri, Y. A. (2026). BUSCO Supermatrix Helper. https://github.com/adhitwicaksono/busco-supermatrix-helper
+Wicaksono, A., & Purwestri, Y. A. (2026). BUSCO Supermatrix Helper. GitHub repository: https://github.com/adhitwicaksono/busco-supermatrix-helper
