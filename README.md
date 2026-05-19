@@ -282,13 +282,13 @@ python scripts/concatenate_busco_alignments.py \
 Expected final FASTA structure:
 
 ```text
->AGIS1.0
+><sample_name1>
 ATG...
 
->CI
+><sample_name2>
 ATG...
 
->CL
+><sample_name3>
 ATG...
 ```
 
@@ -523,4 +523,14 @@ This makes the workflow useful for hybrid environments such as Galaxy + local co
 
 ## Author
 
-Developed by **Adhityo Wicaksono**. Project led by **Yekti Asih Purwestri** (Universitas Gadjah Mada, Indonesia).
+Developed by **Adhityo Wicaksono**. Project led by **Prof. Yekti Asih Purwestri** (Universitas Gadjah Mada, Indonesia).
+
+---
+
+## Citation
+
+BUSCO Supermatrix Helper was built on a manuscript about local rice cultivars whole genome sequencing. The manuscript is currently in preparation. 
+
+For now:
+
+Wicaksono, A., & Purwestri, Y. A. (2026). BUSCO Supermatrix Helper. https://github.com/adhitwicaksono/busco-supermatrix-helper
