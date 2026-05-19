@@ -523,7 +523,7 @@ This makes the workflow useful for hybrid environments such as Galaxy + local co
 
 ## AI Usage Declaration
 
-This project was developed with assistance from AI tools, especially **ChatGPT (OpenAI)**, during early ideation, documentation drafting, toy dataset design, test planning, and prototype code generation.
+This project was developed with assistance from AI tools, especially **ChatGPT (OpenAI)**, during early ideation, test planning, and prototype code generation. The codes have been tested and validated by the authors.
 
 ---
 
