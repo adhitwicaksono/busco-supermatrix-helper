@@ -154,13 +154,13 @@ Use `rename_busco_headers.py` to convert coordinate-based FASTA headers into:
 Example:
 
 ```bash
-python3 scripts/rename_busco_headers.py \
-  --sample CI \
-  --full_table CI_full_table.tsv \
-  --fasta CI_busco_sequences.fasta \
-  --out CI_BUSCO_complete_renamed.fasta \
-  --summary CI_BUSCO_rename_summary.txt \
-  --unmatched CI_BUSCO_unmatched_headers.txt
+python scripts/rename_busco_headers.py \
+  --sample <sample_name> \
+  --full_table full_table.tsv \
+  --fasta busco_sequences.fasta \
+  --out <name>_complete_renamed.fasta \
+  --summary <name>_BUSCO_rename_summary.txt \
+  --unmatched <name>_BUSCO_unmatched_headers.txt
 ```
 
 Example output headers:
@@ -173,7 +173,17 @@ Example output headers:
 
 Only BUSCO records annotated as `Complete` are retained.
 
-Duplicated, fragmented, missing, and unmatched sequences are excluded.
+Duplicated, fragmented, missing, and unmatched sequences are excluded. If you don't need the summary or the unmatched BUSCOs, you an exclude `--summary` and `--unmatched`, respectively, from the command.
+
+The minimum command can be just the sample name (`--sample`), full table file (`--full_table`), the BUSCO FASTA input (`--fasta`), and the resulting output file or directory (`--out`):
+
+```bash
+python rename_busco_headers.py \
+  --sample <sample name> \
+  --full_table full_table.tsv \
+  --fasta busco_sequences.fasta \
+  --out <name>_BUSCO_complete_renamed.fasta
+```
 
 ---
 
@@ -184,13 +194,22 @@ After renaming all sample FASTA files, group orthologous BUSCO sequences across 
 Example:
 
 ```bash
-python3 scripts/group_buscos_by_id.py \
-  --input AGIS1.0_BUSCO_complete_renamed.fasta CI_BUSCO_complete_renamed.fasta CL_BUSCO_complete_renamed.fasta GJ_BUSCO_complete_renamed.fasta IN_BUSCO_complete_renamed.fasta BSM_BUSCO_complete_renamed.fasta KM_BUSCO_complete_renamed.fasta MPE_BUSCO_complete_renamed.fasta PP_BUSCO_complete_renamed.fasta \
-  --outdir grouped \
-  --samples AGIS1.0 CI CL GJ IN BSM KM MPE PP \
+python scripts/group_buscos_by_id.py \
+  --input <name1>_BUSCO_complete_renamed.fasta <name2>_BUSCO_complete_renamed.fasta <name3>_BUSCO_complete_renamed.fasta <name4>_BUSCO_complete_renamed.fasta <name5>_BUSCO_complete_renamed.fasta <name6>_BUSCO_complete_renamed.fasta <name7>_BUSCO_complete_renamed.fasta <name8>_BUSCO_complete_renamed.fasta <name9>_BUSCO_complete_renamed.fasta \
+  --out grouped_buscos \
+  --samples <name1> <name2> <name3> <name4> <name5> <name6> <name7> <name8> <name9> \
   --shared_only \
   --summary BUSCO_grouping_summary.txt \
   --manifest BUSCO_grouped_manifest.tsv
+```
+
+
+The minimum command can be just `--input` and `--out`:
+
+```bash
+python group_buscos_by_id.py \
+  --input *_BUSCO_complete_renamed.fasta \
+  --out grouped_buscos/
 ```
 
 This produces one FASTA file per shared BUSCO ID:
@@ -253,7 +272,7 @@ After MAFFT alignment, concatenate all aligned BUSCOs into one supermatrix using
 Example:
 
 ```bash
-python3 scripts/concatenate_busco_alignments.py \
+python scripts/concatenate_busco_alignments.py \
   --aligned_dir aligned \
   --samples AGIS1.0 CI CL GJ IN BSM KM MPE PP \
   --out BUSCO_supermatrix.fasta \
@@ -442,27 +461,29 @@ This repository is a lightweight helper workflow for reformatting BUSCO-derived 
 
 ### Core tools to cite
 
-If you use BUSCO-derived sequences, please cite BUSCO:
+This tool set was designed following the output from BUSCO, MAFFT, and IQ-TREE. Please cite the references corresponding to the respective tools.
+
+BUSCO:
 
 - Waterhouse, R. M., Seppey, M., Simão, F. A., Manni, M., Ioannidis, P., Klioutchnikov, G., Kriventseva, E. V., & Zdobnov, E. M. (2018). BUSCO applications from quality assessments to gene prediction and phylogenomics. *Molecular Biology and Evolution*, 35(3), 543–548. https://doi.org/10.1093/molbev/msx319
 
-If you align grouped BUSCO sequences with MAFFT, please cite MAFFT:
+MAFFT:
 
 - Katoh, K., & Standley, D. M. (2013). MAFFT multiple sequence alignment software version 7: improvements in performance and usability. *Molecular Biology and Evolution*, 30(4), 772–780. https://doi.org/10.1093/molbev/mst010
 
-If you infer phylogenetic trees with IQ-TREE, please cite IQ-TREE:
+IQ-TREE:
 
 - Minh, B. Q., Schmidt, H. A., Chernomor, O., Schrempf, D., Woodhams, M. D., von Haeseler, A., & Lanfear, R. (2020). IQ-TREE 2: new models and efficient methods for phylogenetic inference in the genomic era. *Molecular Biology and Evolution*, 37(5), 1530–1534. https://doi.org/10.1093/molbev/msaa015
 
-If you use ModelFinder through IQ-TREE, please cite:
+ModelFinder through IQ-TREE, please cite:
 
 - Kalyaanamoorthy, S., Minh, B. Q., Wong, T. K. F., von Haeseler, A., & Jermiin, L. S. (2017). ModelFinder: fast model selection for accurate phylogenetic estimates. *Nature Methods*, 14, 587–589. https://doi.org/10.1038/nmeth.4285
 
-If you use ultrafast bootstrap through IQ-TREE, please cite:
+The ultrafast bootstrap through IQ-TREE, please cite:
 
 - Hoang, D. T., Chernomor, O., von Haeseler, A., Minh, B. Q., & Vinh, L. S. (2018). UFBoot2: improving the ultrafast bootstrap approximation. *Molecular Biology and Evolution*, 35(2), 518–522. https://doi.org/10.1093/molbev/msx281
 
-If you use FastTree, please cite:
+Alternatively, if you use FastTree, please cite:
 
 - Price, M. N., Dehal, P. S., & Arkin, A. P. (2010). FastTree 2: approximately maximum-likelihood trees for large alignments. *PLoS ONE*, 5(3), e9490. https://doi.org/10.1371/journal.pone.0009490
 
