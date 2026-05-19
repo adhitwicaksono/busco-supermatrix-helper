@@ -129,8 +129,8 @@ For each sample, the workflow requires:
 Example:
 
 ```text
-CI_full_table.tsv
-CI_busco_sequences.fasta
+<sample_name>_full_table.tsv
+<sample_name>_busco_sequences.fasta
 ```
 
 The BUSCO FASTA headers are expected to contain genomic coordinate-style identifiers, such as:
@@ -166,9 +166,9 @@ python scripts/rename_busco_headers.py \
 Example output headers:
 
 ```text
->CI|2at3193
->CI|5at3193
->CI|10at3193
+><sample_name>|2at3193
+><sample_name>|5at3193
+><sample_name>|10at3193
 ```
 
 Only BUSCO records annotated as `Complete` are retained.
@@ -203,7 +203,6 @@ python scripts/group_buscos_by_id.py \
   --manifest BUSCO_grouped_manifest.tsv
 ```
 
-
 The minimum command can be just `--input` and `--out`:
 
 ```bash
@@ -225,13 +224,13 @@ grouped/
 Each grouped FASTA contains one sequence per sample:
 
 ```text
->AGIS1.0
+><sample_name1>
 ATG...
 
->CI
+><sample_name2>
 ATG...
 
->CL
+><sample_name3>
 ATG...
 ```
 
@@ -418,15 +417,15 @@ For complex genomes, additional filtering may be needed, especially for:
 This workflow was first tested on comparative rice genome data using BUSCO outputs from:
 
 ```text
-AGIS1.0
-CI
-CL
-GJ
-IN
-BSM
-KM
-MPE
-PP
+<sample_name1>
+<sample_name2>
+<sample_name3>
+<sample_name4>
+<sample_name5>
+<sample_name6>
+<sample_name7>
+<sample_name8>
+<sample_name9>
 ```
 
 It was used to prepare shared BUSCO nucleotide and protein datasets for MAFFT alignment, supermatrix concatenation, and IQ-TREE phylogenetic reconstruction.
