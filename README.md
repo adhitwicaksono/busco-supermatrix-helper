@@ -83,18 +83,12 @@ IQ-TREE / FastTree / other phylogenetic tools
 ```text
 busco-supermatrix-helper/
 ├── README.md
-├── scripts/
-│   ├── rename_busco_headers.py
-│   ├── group_buscos_by_id.py
-│   └── concatenate_busco_alignments.py
-├── examples/
-│   ├── example_full_table.tsv
-│   ├── example_busco_sequences.fasta
-│   └── expected_output/
-├── docs/
-│   └── workflow_diagram.png
-├── LICENSE
-└── CITATION.cff
+├── rename_busco_headers.py
+├── group_buscos_by_id.py
+├── concatenate_busco_alignments.py
+├── assets /
+│   └── busco_supermatrix_helper_banner.png
+└── LICENSE
 ```
 
 ---
