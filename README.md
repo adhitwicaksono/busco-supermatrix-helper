@@ -154,7 +154,7 @@ Use `rename_busco_headers.py` to convert coordinate-based FASTA headers into:
 Example:
 
 ```bash
-python scripts/rename_busco_headers.py \
+python rename_busco_headers.py \
   --sample <sample_name> \
   --full_table full_table.tsv \
   --fasta busco_sequences.fasta \
@@ -194,7 +194,7 @@ After renaming all sample FASTA files, group orthologous BUSCO sequences across 
 Example:
 
 ```bash
-python scripts/group_buscos_by_id.py \
+python group_buscos_by_id.py \
   --input <name1>_BUSCO_complete_renamed.fasta <name2>_BUSCO_complete_renamed.fasta <name3>_BUSCO_complete_renamed.fasta <name4>_BUSCO_complete_renamed.fasta <name5>_BUSCO_complete_renamed.fasta <name6>_BUSCO_complete_renamed.fasta <name7>_BUSCO_complete_renamed.fasta <name8>_BUSCO_complete_renamed.fasta <name9>_BUSCO_complete_renamed.fasta \
   --out grouped_buscos \
   --samples <name1> <name2> <name3> <name4> <name5> <name6> <name7> <name8> <name9> \
@@ -271,12 +271,11 @@ After MAFFT alignment, concatenate all aligned BUSCOs into one supermatrix using
 Example:
 
 ```bash
-python scripts/concatenate_busco_alignments.py \
+python concatenate_busco_alignments.py \
   --aligned_dir aligned \
-  --samples AGIS1.0 CI CL GJ IN BSM KM MPE PP \
+  --samples <name1> <name2> <name3> <name4> <name5> <name6> <name7> <name8> <name9> \
   --out BUSCO_supermatrix.fasta \
-  --partition BUSCO_partitions.txt \
-  --summary BUSCO_concatenation_summary.txt
+  --partition BUSCO_partitions.txt
 ```
 
 Expected final FASTA structure:
@@ -529,7 +528,7 @@ This project was developed with assistance from AI tools, especially **ChatGPT (
 
 ## Author
 
-Developed by **Adhityo Wicaksono**. Project led by **Prof. Yekti Asih Purwestri** (Universitas Gadjah Mada, Indonesia).
+Developed by **Adhityo Wicaksono**. Project of rice whole genome sequencing was led by **Prof. Yekti Asih Purwestri** (Universitas Gadjah Mada, Indonesia).
 
 ---
 
