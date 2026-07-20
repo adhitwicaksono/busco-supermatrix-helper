@@ -272,6 +272,14 @@ python concatenate_busco_alignments.py \
   --partition BUSCO_partitions.txt
 ```
 
+The minimum command can be as simple as:
+
+```bash
+python concatenate_busco_alignments.py
+```
+
+NOTE: Please check the sample names INSIDE the Python script. Edit if necessary.
+
 Expected final FASTA structure:
 
 ```text
@@ -294,7 +302,7 @@ The resulting supermatrix can be used for phylogenetic inference.
 ### IQ-TREE example for nucleotide BUSCO supermatrix
 
 ```bash
-iqtree2 \
+iqtree3 \
   -s BUSCO_supermatrix.fasta \
   -m MFP \
   --ufboot 1000 \
@@ -305,7 +313,7 @@ iqtree2 \
 ### IQ-TREE example for protein BUSCO supermatrix
 
 ```bash
-iqtree2 \
+iqtree3 \
   -s BUSCO_supermatrix.fasta \
   -st AA \
   -m MFP \
